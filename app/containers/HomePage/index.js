@@ -1,25 +1,26 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { addNode, editNode, setMenu } from './actions';
+import injectReducer from 'utils/injectReducer';
+import reducer from './reducer';
+import { selectMenu } from './selectors';
+import { createStructuredSelector } from 'reselect';
+import HomePage from './HomePage';
 
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+const mapDispatchToProps = dispatch => ({
+  addNode: (node, parentId) => dispatch(addNode(node, parentId)),
+  editNode: node => dispatch(editNode(node)),
+  setMenu: menu => dispatch(setMenu(menu)),
+});
 
-/* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
-  render() {
-    return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
-    );
-  }
-}
+const mapStateToProps = createStructuredSelector({
+  menu: selectMenu,
+});
+
+export default compose(
+  injectReducer({ key: 'restaurant', reducer }),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+)(HomePage);
