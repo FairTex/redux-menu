@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { addNode, editNode, setMenu } from './actions';
 import injectReducer from 'utils/injectReducer';
+import { createStructuredSelector } from 'reselect';
+import { addNode, editNode, setMenu } from './actions';
 import reducer from './reducer';
 import { selectMenu } from './selectors';
-import { createStructuredSelector } from 'reselect';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = dispatch => ({

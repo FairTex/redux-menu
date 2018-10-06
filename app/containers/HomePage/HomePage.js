@@ -1,16 +1,16 @@
 import React from 'react';
-import Tree from './Tree';
+import styled from 'styled-components';
 import { Modal, Button } from 'antd';
+import Tree from './Tree';
 import AddCategory from './AddCategory';
 import AddItem from './AddItem';
 import EditItem from './EditItem';
-import styled from 'styled-components';
 import { findItemById, getMenu } from './utils';
 
 const Container = styled.div`
-    width: 800px;
-    margin: 50px auto;
-`
+  width: 800px;
+  margin: 50px auto;
+`;
 
 /* eslint-disable react/prefer-stateless-function */
 export default class extends React.PureComponent {

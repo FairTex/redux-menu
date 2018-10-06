@@ -1,5 +1,5 @@
-import { ADD_NODE, EDIT_NODE, SET_MENU } from './constants';
 import { fromJS } from 'immutable';
+import { ADD_NODE, EDIT_NODE, SET_MENU } from './constants';
 
 export const initialState = fromJS({
   menu: [],

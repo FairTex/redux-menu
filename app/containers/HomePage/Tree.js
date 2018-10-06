@@ -2,7 +2,7 @@ import React from 'react';
 import { Tree, Button } from 'antd';
 const { TreeNode } = Tree;
 
-export default ({onSelect, menu, openModal}) => {
+export default ({ onSelect, menu, openModal }) => {
   const buildMenu = data =>
     data.map(item => {
       if (item.children) {
@@ -11,10 +11,10 @@ export default ({onSelect, menu, openModal}) => {
             key={item.id}
             title={
               <span>
-                  {item.title}
+                {item.title}
                 {'  '}
                 <Button onClick={() => openModal(item.id)}>+</Button>
-                </span>
+              </span>
             }
             selectable={false}
           >

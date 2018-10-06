@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Input, InputNumber } from 'antd';
+import { Button, Input } from 'antd';
 
 export default class AddCategory extends Component {
   state = {
@@ -14,8 +14,8 @@ export default class AddCategory extends Component {
 
   onSubmit = () => {
     if (this.state.title.length > 0) {
-      this.props.add({...this.state, children: []});
-      this.setState({title: ''});
+      this.props.add({ ...this.state, children: [] });
+      this.setState({ title: '' });
     }
   };
 
